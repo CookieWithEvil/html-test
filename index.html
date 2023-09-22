@@ -19,6 +19,7 @@
         border-radius: 5px;
         color: #fff;
         font-family: Arial;
+        border: 1px solid red;
       }
     </style>
 
@@ -41,7 +42,7 @@
 
             document.body.insertBefore(
               event.target,
-              divs[Number(event.target.id)]
+              divs[Number(event.target.id) + 1]
             );
           } else {
             e.target.remove();
