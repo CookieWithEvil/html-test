@@ -34,19 +34,20 @@
       });
 
       document.body.addEventListener("click", function (e) {
-        const divs = document.getElementsByTagName("div");
+        if (e.target.nodeName === "DIV") {
+          const divs = document.getElementsByTagName("div");
 
-        if (divs[0].id == event.target.id && event.target.id != 0) {
-          e.target.remove();
+          if (divs[0].id == event.target.id && event.target.id != 0) {
+            e.target.remove();
 
-          console.log("event.target.id + 1", Number(event.target.id) + 1);
-          document.body.insertBefore(
-            event.target,
-            divs[Number(event.target.id)]
-          );
-        } else {
-          e.target.remove();
-          if (e.target !== null) document.body.prepend(e.target);
+            document.body.insertBefore(
+              event.target,
+              divs[Number(event.target.id)]
+            );
+          } else {
+            e.target.remove();
+            if (e.target !== null) document.body.prepend(e.target);
+          }
         }
       });
     </script>
